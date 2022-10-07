@@ -1,7 +1,7 @@
-import IProductType, { ProductId} from "../../data-types";
 import React from "react";
+import Carousel from "../carousel/index";
 import {productData} from "../../data";
-import Carousel from "../carousel";
+import IProductType, { ProductId} from "../../data-types";
 
 const ProductDetails = ({id: productId}: {id: ProductId} ) => {
     const [product, setProduct] = React.useState<IProductType>(null);

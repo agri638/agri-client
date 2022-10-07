@@ -11,8 +11,8 @@ const Carousel = (props: CarouselProps) => {
     const {media, paginator} = props;
     const [activeMedia, setActiveMedia] = React.useState<ResponsiveType<ActiveMediaProps>>(null);
 
-    const leftButton: boolean = activeMedia && activeMedia.index > 0 ? true: false;
-    const rightButton: boolean = activeMedia && activeMedia.index < media.length - 1 ? true : false;
+    const leftButton: boolean = !!(activeMedia && activeMedia.index > 0);
+    const rightButton: boolean = !!(activeMedia && activeMedia.index < media.length - 1);
 
     React.useEffect(()=> {
         if(media.length > 0){
@@ -48,10 +48,10 @@ const Carousel = (props: CarouselProps) => {
                     </div>
                     {
                         rightButton && <CarouselButton direction={"right"}
-                                                                media={media}
-                                                                activeMedia={activeMedia}
-                                                                setActiveMedia={setActiveMedia}
-                                                                returnMediaFromIndx={returnMediaFromIndx}/>
+                                                media={media}
+                                                activeMedia={activeMedia}
+                                                setActiveMedia={setActiveMedia}
+                                                returnMediaFromIndx={returnMediaFromIndx}/>
                     }
                 </div>
                 <div className={`carousel-lower`}>
