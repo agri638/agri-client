@@ -11,6 +11,9 @@ const Carousel = (props: CarouselProps) => {
     const {media, paginator} = props;
     const [activeMedia, setActiveMedia] = React.useState<ResponsiveType<ActiveMediaProps>>(null);
 
+    const leftButton: boolean = activeMedia && activeMedia.index > 0 ? true: false;
+    const rightButton: boolean = activeMedia && activeMedia.index < media.length - 1 ? true : false;
+
     React.useEffect(()=> {
         if(media.length > 0){
             setActiveMedia({index: 0, id: media[0].id, url: media[0].url, type: media[0].type});
@@ -34,7 +37,7 @@ const Carousel = (props: CarouselProps) => {
             <div className={`carousel-inner w-[600px]`}>
                 <div  className={`carousel-upper shadow-lg rounded-lg overflow-hidden h-[600px] relative`}>
                     {
-                        activeMedia.index > 0 && <CarouselButton direction={"left"}
+                        leftButton && <CarouselButton direction={"left"}
                                                  media={media}
                                                  activeMedia={activeMedia}
                                                  setActiveMedia={setActiveMedia}
@@ -44,7 +47,7 @@ const Carousel = (props: CarouselProps) => {
                         <img src={activeMedia.url} alt={""} className={`w-full h-full select-none`}/>
                     </div>
                     {
-                        activeMedia.index < media.length - 1 && <CarouselButton direction={"right"}
+                        rightButton && <CarouselButton direction={"right"}
                                                                 media={media}
                                                                 activeMedia={activeMedia}
                                                                 setActiveMedia={setActiveMedia}

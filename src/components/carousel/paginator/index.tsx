@@ -6,7 +6,7 @@ import stableHash from "stable-hash";
 
 const CarouselPaginator = (props: CarouselPaginatorProps) =>{
     const {paginator, media, activeMedia, setActiveMedia, returnMediaFromIndx} = props;
-    const TIMER = React.useRef(800).current;
+    const TIMER = React.useRef(500).current;
     const paginatorElementTimer = React.useRef<NodeJS.Timeout | null>(null);
 
     const mediaFindIndex = React.useCallback((id: ProductId) => media.findIndex(el=> el.id === id),
