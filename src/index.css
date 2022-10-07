@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline-width: 1pt !important;
+    outline-color: rgba(93, 93, 93, 0.87);
+}
+
+:root{
+    font-size: 16px;
+    line-height: 20px;
+}
+body{
+    font-family: 'Inter Tight', sans-serif;
+    font-size:16px;
+    line-height: 20px;
+}
